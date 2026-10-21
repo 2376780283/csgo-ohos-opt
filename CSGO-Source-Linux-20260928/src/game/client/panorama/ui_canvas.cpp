@@ -869,8 +869,8 @@ static bool Helper_JSArrayToVector2Ds( int nPointCount, v8::Local<v8::Array> poi
 		if ( !( points->Get( i )->IsNumber() && points->Get( i + 1 )->IsNumber() ) )
 			return false;
 
-		vP.x = (float)points->Get( i )->ToNumber()->Value();
-		vP.y = (float)points->Get( i + 1 )->ToNumber()->Value();
+		vP.x = (float)points->Get( i )->ToNumber( v8::Isolate::GetCurrent()->GetCurrentContext() ).ToLocalChecked()->Value();
+		vP.y = (float)points->Get( i + 1 )->ToNumber( v8::Isolate::GetCurrent()->GetCurrentContext() ).ToLocalChecked()->Value();
 
 		vPoints.AddToTail( vP );
 
