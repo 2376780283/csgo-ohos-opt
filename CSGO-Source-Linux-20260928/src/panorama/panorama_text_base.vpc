@@ -93,7 +93,8 @@ $Configuration
 	$Linker
 	{
 		$SystemLibraries "SDL3" [$LINUXALL && $SDL3]
-		$SystemLibraries "pango-1.0;pangoft2-1.0;glib-2.0;gobject-2.0;fontconfig;freetype;SDL3" [$ANDROIDALL]
+		$SystemLibraries "pango-1.0;pangoft2-1.0;glib-2.0;gobject-2.0;fontconfig;freetype;SDL3;crypto" [$ANDROIDALL]
+		$GCC_ExtraLinkerFlags "-L../../runtime/android/install/lib" [$ANDROIDALL]
 		// SystemConfiguration must come before IOKit due to a bug in the Apple SDK that lets the linker bind to
 		// symbols that were in SystemConfiguration pre 10.7, are in IOKit in 10.7. if the linker chooses the IOKit version, 
 		// the resulting binary will fail to load on 10.5 

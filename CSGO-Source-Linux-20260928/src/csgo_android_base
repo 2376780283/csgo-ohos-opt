@@ -1,0 +1,228 @@
+# VPC MASTER MAKEFILE
+
+
+ifneq "$(LINUX_TOOLS_PATH)" ""
+TOOL_PATH = $(LINUX_TOOLS_PATH)/
+SHELL := $(TOOL_PATH)bash
+else
+SHELL := /bin/bash
+endif
+
+ifdef MAKE_CHROOT
+    ifneq ("$(wildcard /etc/schroot/chroot.d/$(MAKE_CHROOT).conf)","")
+        export CHROOT_NAME ?= $(MAKE_CHROOT)
+    endif
+    export CHROOT_NAME ?= $(subst /,_,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
+    CHROOT_CONF := /etc/schroot/chroot.d/$(CHROOT_NAME).conf
+    ifeq "$(CHROOT_NAME)" "steamrt_scout_amd64"
+        CHROOT_DIR := /var/chroots
+    else
+        CHROOT_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/tools/runtime/linux)
+    endif
+    RUNTIME_NAME ?= steamrt_scout_amd64
+    ifneq ("$(SCHROOT_CHROOT_NAME)", "$(CHROOT_NAME)")
+        SHELL:=schroot --chroot $(CHROOT_NAME) -- /bin/bash
+    endif
+
+    CHROOT_TARBALL = $(CHROOT_DIR)/$(RUNTIME_NAME).tar.xz
+    CHROOT_TIMESTAMP_FILE = $(CHROOT_DIR)/$(RUNTIME_NAME)/timestamp
+
+    ifneq ("$(wildcard $(CHROOT_TARBALL))","")
+        CHROOT_DEPENDENCY = $(CHROOT_CONF)
+    endif
+endif
+
+ECHO = $(TOOL_PATH)echo
+ETAGS = $(TOOL_PATH)etags
+FIND = $(TOOL_PATH)find
+UNAME = $(TOOL_PATH)uname
+XARGS = $(TOOL_PATH)xargs
+
+DOCKER_EXEC :=
+ifeq (${USE_DOCKER},1)
+    # We want to use docker. Are we already in the container? If so, nothing more to do.
+    ifneq ($(IN_DOCKER_BUILD),1)
+        DOCKER_ENV_LIST := CFG MAKE_JOBS MAKE_VERBOSE P4CONFIG P4PORT P4USER P4CLIENT
+        DOCKER_ENV_VARS := $(foreach var,$(DOCKER_ENV_LIST), -e $(var)=$($(var)))
+        DOCKER_EXEC := $(shell echo docker run -i --rm -v `echo ~`:`echo ~` -v $(PWD)/..:$(PWD)/.. $(DOCKER_ENV_VARS) -w $$PWD -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro -u=$$UID:$$(id -g $$USER) -h=`hostname` build_csgo_server:latest) dumb-init
+    endif
+endif
+
+# to control parallelism, set the MAKE_JOBS environment variable
+ifeq ($(strip $(MAKE_JOBS)),)
+    ifeq ($(shell $(UNAME)),Darwin)
+        CPUS := $(shell /usr/sbin/sysctl -n hw.ncpu)
+    endif
+    ifeq ($(shell $(UNAME)),Linux)
+        CPUS := $(shell $(TOOL_PATH)grep processor /proc/cpuinfo | $(TOOL_PATH)wc -l)
+    endif
+    MAKE_JOBS := $(CPUS)
+endif
+
+ifeq ($(strip $(MAKE_JOBS)),)
+    MAKE_JOBS := 8
+endif
+
+# All projects (default target)
+all: $(CHROOT_DEPENDENCY)
+	$(DOCKER_EXEC) $(MAKE) -f $(lastword $(MAKEFILE_LIST)) -j$(MAKE_JOBS) all-targets
+
+all-targets : tier0 tier1 mathlib interfaces vstdlib tier2 vpklib filesystem_stdio bitmap vtf 
+
+
+# Individual projects + dependencies
+
+tier0 : 
+	@$(ECHO) "Building: tier0"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/tier0 -f tier0_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+tier1 : 
+	@$(ECHO) "Building: tier1"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/tier1 -f tier1_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+mathlib : 
+	@$(ECHO) "Building: mathlib"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/mathlib -f mathlib_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+interfaces : 
+	@$(ECHO) "Building: interfaces"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/interfaces -f interfaces_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+vstdlib : tier0 tier1 interfaces 
+	@$(ECHO) "Building: vstdlib"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/vstdlib -f vstdlib_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+tier2 : 
+	@$(ECHO) "Building: tier2"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/tier2 -f tier2_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+vpklib : 
+	@$(ECHO) "Building: vpklib"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/vpklib -f vpklib_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+filesystem_stdio : tier0 tier1 interfaces vstdlib tier2 vpklib 
+	@$(ECHO) "Building: filesystem_stdio"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/filesystem -f filesystem_stdio_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+bitmap : 
+	@$(ECHO) "Building: bitmap"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/bitmap -f bitmap_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+vtf : 
+	@$(ECHO) "Building: vtf"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/vtf -f vtf_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+# this is a bit over-inclusive, but the alternative (actually adding each referenced c/cpp/h file to
+# the tags file) seems like more work than it's worth.  feel free to fix that up if it bugs you. 
+TAGS:
+	@$(TOOL_PATH)rm -f TAGS
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+
+
+
+# Mark all the projects as phony or else make will see the directories by the same name and think certain targets 
+
+.PHONY: TAGS all all-targets showtargets regen showregen clean cleantargets cleanandremove relink tier0 tier1 mathlib interfaces vstdlib tier2 vpklib filesystem_stdio bitmap vtf 
+
+
+
+# The standard clean command to clean it all out.
+
+clean: 
+	@$(DOCKER_EXEC) $(MAKE) -f $(lastword $(MAKEFILE_LIST)) -j$(MAKE_JOBS) all-targets CLEANPARAM=clean
+
+
+
+# clean targets, so we re-link next time.
+
+cleantargets: 
+	@$(DOCKER_EXEC) $(MAKE) -f $(lastword $(MAKEFILE_LIST)) -j$(MAKE_JOBS) all-targets CLEANPARAM=cleantargets
+
+
+
+# p4 edit and remove targets, so we get an entirely clean build.
+
+cleanandremove: 
+	@$(DOCKER_EXEC) $(MAKE) -f $(lastword $(MAKEFILE_LIST)) -j$(MAKE_JOBS) all-targets CLEANPARAM=cleanandremove
+
+
+
+#relink
+
+relink: cleantargets 
+	@$(DOCKER_EXEC) $(MAKE) -f $(lastword $(MAKEFILE_LIST)) -j$(MAKE_JOBS) all-targets
+
+
+
+# Here's a command to list out all the targets
+
+
+showtargets: 
+	@$(ECHO) '-------------------' && \
+	$(ECHO) '----- TARGETS -----' && \
+	$(ECHO) '-------------------' && \
+	$(ECHO) 'clean' && \
+	$(ECHO) 'regen' && \
+	$(ECHO) 'showregen' && \
+	$(ECHO) 'tier0' && \
+	$(ECHO) 'tier1' && \
+	$(ECHO) 'mathlib' && \
+	$(ECHO) 'interfaces' && \
+	$(ECHO) 'vstdlib' && \
+	$(ECHO) 'tier2' && \
+	$(ECHO) 'vpklib' && \
+	$(ECHO) 'filesystem_stdio' && \
+	$(ECHO) 'bitmap' && \
+	$(ECHO) 'vtf'
+
+
+
+# Here's a command to regenerate this makefile
+
+
+regen: 
+	./devtools/bin/vpc_linux /csgo /androidarm64 +tier0 +tier1 +mathlib +interfaces +vstdlib +tier2 +vpklib +filesystem_stdio +bitmap +vtf /nop4add /mksln csgo_android_base /f 
+
+
+# Here's a command to list out all the targets
+
+
+showregen: 
+	@$(ECHO) ./devtools/bin/vpc_linux /csgo /androidarm64 +tier0 +tier1 +mathlib +interfaces +vstdlib +tier2 +vpklib +filesystem_stdio +bitmap +vtf /nop4add /mksln csgo_android_base /f 
+
+ifdef CHROOT_DEPENDENCY
+$(CHROOT_DEPENDENCY): $(CHROOT_TIMESTAMP_FILE)
+$(CHROOT_DEPENDENCY): SHELL = /bin/bash
+$(CHROOT_TIMESTAMP_FILE): $(CHROOT_TARBALL)
+	@echo "chroot ${CHROOT_NAME} at $(CHROOT_DIR) is out of date"
+	@echo You need to re-run sudo tools/runtime/linux/configure_runtime.sh ${CHROOT_NAME} ${RUNTIME_NAME}
+endif

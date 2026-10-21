@@ -1,0 +1,644 @@
+# VPC MASTER MAKEFILE
+
+
+ifneq "$(LINUX_TOOLS_PATH)" ""
+TOOL_PATH = $(LINUX_TOOLS_PATH)/
+SHELL := $(TOOL_PATH)bash
+else
+SHELL := /bin/bash
+endif
+
+ifdef MAKE_CHROOT
+    ifneq ("$(wildcard /etc/schroot/chroot.d/$(MAKE_CHROOT).conf)","")
+        export CHROOT_NAME ?= $(MAKE_CHROOT)
+    endif
+    export CHROOT_NAME ?= $(subst /,_,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
+    CHROOT_CONF := /etc/schroot/chroot.d/$(CHROOT_NAME).conf
+    ifeq "$(CHROOT_NAME)" "steamrt_scout_amd64"
+        CHROOT_DIR := /var/chroots
+    else
+        CHROOT_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/tools/runtime/linux)
+    endif
+    RUNTIME_NAME ?= steamrt_scout_amd64
+    ifneq ("$(SCHROOT_CHROOT_NAME)", "$(CHROOT_NAME)")
+        SHELL:=schroot --chroot $(CHROOT_NAME) -- /bin/bash
+    endif
+
+    CHROOT_TARBALL = $(CHROOT_DIR)/$(RUNTIME_NAME).tar.xz
+    CHROOT_TIMESTAMP_FILE = $(CHROOT_DIR)/$(RUNTIME_NAME)/timestamp
+
+    ifneq ("$(wildcard $(CHROOT_TARBALL))","")
+        CHROOT_DEPENDENCY = $(CHROOT_CONF)
+    endif
+endif
+
+ECHO = $(TOOL_PATH)echo
+ETAGS = $(TOOL_PATH)etags
+FIND = $(TOOL_PATH)find
+UNAME = $(TOOL_PATH)uname
+XARGS = $(TOOL_PATH)xargs
+
+DOCKER_EXEC :=
+ifeq (${USE_DOCKER},1)
+    # We want to use docker. Are we already in the container? If so, nothing more to do.
+    ifneq ($(IN_DOCKER_BUILD),1)
+        DOCKER_ENV_LIST := CFG MAKE_JOBS MAKE_VERBOSE P4CONFIG P4PORT P4USER P4CLIENT
+        DOCKER_ENV_VARS := $(foreach var,$(DOCKER_ENV_LIST), -e $(var)=$($(var)))
+        DOCKER_EXEC := $(shell echo docker run -i --rm -v `echo ~`:`echo ~` -v $(PWD)/..:$(PWD)/.. $(DOCKER_ENV_VARS) -w $$PWD -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro -u=$$UID:$$(id -g $$USER) -h=`hostname` build_csgo_server:latest) dumb-init
+    endif
+endif
+
+# to control parallelism, set the MAKE_JOBS environment variable
+ifeq ($(strip $(MAKE_JOBS)),)
+    ifeq ($(shell $(UNAME)),Darwin)
+        CPUS := $(shell /usr/sbin/sysctl -n hw.ncpu)
+    endif
+    ifeq ($(shell $(UNAME)),Linux)
+        CPUS := $(shell $(TOOL_PATH)grep processor /proc/cpuinfo | $(TOOL_PATH)wc -l)
+    endif
+    MAKE_JOBS := $(CPUS)
+endif
+
+ifeq ($(strip $(MAKE_JOBS)),)
+    MAKE_JOBS := 8
+endif
+
+# All projects (default target)
+all: $(CHROOT_DEPENDENCY)
+	$(DOCKER_EXEC) $(MAKE) -f $(lastword $(MAKEFILE_LIST)) -j$(MAKE_JOBS) all-targets
+
+all-targets : launcher appframework interfaces tier0 tier1 tier2 tier3 vstdlib engine bitmap Bzip2 Dmxloader mathlib matsys_controls quickhull soundsystem_lowlevel vgui_controls videocfg vtf filesystem_stdio vpklib inputsystem vphysics havana_constraints hk_base hk_math ivp_compactbuilder ivp_physics materialsystem shaderlib shaderapidx9 datacache studiorender soundemittersystem vaudio_minimp3 SceneFileCache vscript vguimatsurface vgui_surfacelib vgui2 localize stdshader_dbg stdshader_dx9 panorama panorama_s1wrapper resourcefile panoramauiclient panorama_client panorama_text_pango Matchmaking_CSGO gcsdk matchmakingbase Client_Panorama_CSGO bonesetup choreoobjects mathlib_extended meshutils particles Raytrace Server_CSGO kv3lib responserules_runtime 
+
+
+# Individual projects + dependencies
+
+launcher : appframework interfaces tier0 tier1 tier2 tier3 vstdlib 
+	@$(ECHO) "Building: launcher"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/launcher -f launcher_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+appframework : 
+	@$(ECHO) "Building: appframework"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/appframework -f appframework_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+interfaces : 
+	@$(ECHO) "Building: interfaces"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/interfaces -f interfaces_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+tier0 : 
+	@$(ECHO) "Building: tier0"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/tier0 -f tier0_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+tier1 : 
+	@$(ECHO) "Building: tier1"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/tier1 -f tier1_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+tier2 : 
+	@$(ECHO) "Building: tier2"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/tier2 -f tier2_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+tier3 : 
+	@$(ECHO) "Building: tier3"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/tier3 -f tier3_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+vstdlib : interfaces tier0 tier1 
+	@$(ECHO) "Building: vstdlib"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/vstdlib -f vstdlib_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+engine : appframework interfaces tier0 tier1 tier2 tier3 vstdlib bitmap Bzip2 Dmxloader mathlib matsys_controls quickhull soundsystem_lowlevel vgui_controls videocfg vtf 
+	@$(ECHO) "Building: engine"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/engine -f engine_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+bitmap : 
+	@$(ECHO) "Building: bitmap"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/bitmap -f bitmap_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+Bzip2 : 
+	@$(ECHO) "Building: Bzip2"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/utils/bzip2 -f bzip2_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+Dmxloader : 
+	@$(ECHO) "Building: Dmxloader"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/dmxloader -f dmxloader_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+mathlib : 
+	@$(ECHO) "Building: mathlib"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/mathlib -f mathlib_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+matsys_controls : 
+	@$(ECHO) "Building: matsys_controls"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/vgui2/matsys_controls -f matsys_controls_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+quickhull : 
+	@$(ECHO) "Building: quickhull"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/thirdparty/quickhull -f quickhull_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+soundsystem_lowlevel : 
+	@$(ECHO) "Building: soundsystem_lowlevel"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/soundsystem/lowlevel -f soundsystem_lowlevel_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+vgui_controls : 
+	@$(ECHO) "Building: vgui_controls"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/vgui2/vgui_controls -f vgui_controls_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+videocfg : 
+	@$(ECHO) "Building: videocfg"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/videocfg -f videocfg_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+vtf : 
+	@$(ECHO) "Building: vtf"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/vtf -f vtf_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+filesystem_stdio : interfaces tier0 tier1 tier2 vstdlib vpklib 
+	@$(ECHO) "Building: filesystem_stdio"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/filesystem -f filesystem_stdio_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+vpklib : 
+	@$(ECHO) "Building: vpklib"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/vpklib -f vpklib_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+inputsystem : interfaces tier0 tier1 tier2 vstdlib mathlib 
+	@$(ECHO) "Building: inputsystem"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/inputsystem -f inputsystem_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+vphysics : interfaces tier0 tier1 tier2 vstdlib mathlib havana_constraints hk_base hk_math ivp_compactbuilder ivp_physics 
+	@$(ECHO) "Building: vphysics"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/vphysics -f vphysics_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+havana_constraints : 
+	@$(ECHO) "Building: havana_constraints"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/ivp/havana -f havana_constraints_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+hk_base : 
+	@$(ECHO) "Building: hk_base"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/ivp/havana/havok/hk_base -f hk_base_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+hk_math : 
+	@$(ECHO) "Building: hk_math"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/ivp/havana/havok/hk_math -f hk_math_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+ivp_compactbuilder : 
+	@$(ECHO) "Building: ivp_compactbuilder"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/ivp/ivp_compact_builder -f ivp_compactbuilder_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+ivp_physics : 
+	@$(ECHO) "Building: ivp_physics"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/ivp/ivp_physics -f ivp_physics_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+materialsystem : interfaces tier0 tier1 tier2 tier3 vstdlib bitmap mathlib vtf shaderlib 
+	@$(ECHO) "Building: materialsystem"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/materialsystem -f materialsystem_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+shaderlib : 
+	@$(ECHO) "Building: shaderlib"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/materialsystem/shaderlib -f shaderlib_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+shaderapidx9 : interfaces tier0 tier1 tier2 vstdlib bitmap Bzip2 mathlib videocfg vtf 
+	@$(ECHO) "Building: shaderapidx9"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/materialsystem/shaderapidx9 -f shaderapidx9_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+datacache : interfaces tier0 tier1 tier2 tier3 vstdlib mathlib 
+	@$(ECHO) "Building: datacache"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/datacache -f datacache_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+studiorender : interfaces tier0 tier1 tier2 tier3 vstdlib bitmap mathlib 
+	@$(ECHO) "Building: studiorender"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/studiorender -f studiorender_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+soundemittersystem : interfaces tier0 tier1 tier2 vstdlib 
+	@$(ECHO) "Building: soundemittersystem"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/soundemittersystem -f soundemittersystem_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+vaudio_minimp3 : interfaces tier0 tier1 vstdlib 
+	@$(ECHO) "Building: vaudio_minimp3"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/engine/voice_codecs/minimp3 -f vaudio_minimp3_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+SceneFileCache : interfaces tier0 tier1 vstdlib 
+	@$(ECHO) "Building: SceneFileCache"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/scenefilecache -f scenefilecache_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+vscript : interfaces tier0 tier1 vstdlib mathlib 
+	@$(ECHO) "Building: vscript"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/vscript -f vscript_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+vguimatsurface : interfaces tier0 tier1 tier2 tier3 vstdlib bitmap Dmxloader mathlib vgui_controls vgui_surfacelib 
+	@$(ECHO) "Building: vguimatsurface"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/vguimatsurface -f vguimatsurface_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+vgui_surfacelib : 
+	@$(ECHO) "Building: vgui_surfacelib"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/vgui2/vgui_surfacelib -f vgui_surfacelib_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+vgui2 : interfaces tier0 tier1 tier2 tier3 vstdlib vgui_surfacelib 
+	@$(ECHO) "Building: vgui2"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/vgui2/src -f vgui_dll_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+localize : interfaces tier0 tier1 tier2 vstdlib 
+	@$(ECHO) "Building: localize"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/localize -f localize_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+stdshader_dbg : interfaces tier0 tier1 vstdlib mathlib shaderlib 
+	@$(ECHO) "Building: stdshader_dbg"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/materialsystem/stdshaders -f stdshader_dbg_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+stdshader_dx9 : interfaces tier0 tier1 vstdlib mathlib shaderlib 
+	@$(ECHO) "Building: stdshader_dx9"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/materialsystem/stdshaders -f stdshader_dx9_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+panorama : interfaces tier0 tier1 tier2 tier3 vstdlib bitmap mathlib vtf panorama_s1wrapper resourcefile 
+	@$(ECHO) "Building: panorama"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/panorama -f panorama_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+panorama_s1wrapper : 
+	@$(ECHO) "Building: panorama_s1wrapper"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/panorama_s1wrapper -f panorama_s1wrapper_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+resourcefile : 
+	@$(ECHO) "Building: resourcefile"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/resourcefile -f resourcefile_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+panoramauiclient : interfaces tier0 tier1 tier2 tier3 vstdlib mathlib panorama_client 
+	@$(ECHO) "Building: panoramauiclient"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/panoramauiclient -f panoramauiclient_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+panorama_client : 
+	@$(ECHO) "Building: panorama_client"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/panorama -f panorama_client_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+panorama_text_pango : interfaces tier0 tier1 tier2 tier3 vstdlib mathlib 
+	@$(ECHO) "Building: panorama_text_pango"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/panorama -f panorama_text_pango_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+Matchmaking_CSGO : interfaces tier0 tier1 tier2 tier3 vstdlib mathlib gcsdk matchmakingbase 
+	@$(ECHO) "Building: Matchmaking_CSGO"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/matchmaking -f matchmaking_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+gcsdk : 
+	@$(ECHO) "Building: gcsdk"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/gcsdk -f gcsdk_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+matchmakingbase : gcsdk 
+	@$(ECHO) "Building: matchmakingbase"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/matchmaking -f matchmakingbase_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+Client_Panorama_CSGO : interfaces tier0 tier1 tier2 tier3 vstdlib bitmap Dmxloader mathlib matsys_controls vgui_controls videocfg vtf vpklib resourcefile panorama_client gcsdk bonesetup choreoobjects mathlib_extended meshutils particles Raytrace 
+	@$(ECHO) "Building: Client_Panorama_CSGO"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/game/client -f client_panorama_androidarm64_csgo.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+bonesetup : 
+	@$(ECHO) "Building: bonesetup"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/bonesetup -f bonesetup_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+choreoobjects : 
+	@$(ECHO) "Building: choreoobjects"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/choreoobjects -f choreoobjects_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+mathlib_extended : 
+	@$(ECHO) "Building: mathlib_extended"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/mathlib -f mathlib_extended_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+meshutils : 
+	@$(ECHO) "Building: meshutils"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/meshutils -f meshutils_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+particles : 
+	@$(ECHO) "Building: particles"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/particles -f particles_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+Raytrace : 
+	@$(ECHO) "Building: Raytrace"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/raytrace -f raytrace_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+Server_CSGO : interfaces tier0 tier1 tier2 tier3 vstdlib bitmap Dmxloader mathlib vgui_controls gcsdk bonesetup choreoobjects mathlib_extended particles kv3lib responserules_runtime 
+	@$(ECHO) "Building: Server_CSGO"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/game/server -f server_androidarm64_csgo.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+kv3lib : 
+	@$(ECHO) "Building: kv3lib"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/kv3lib -f kv3lib_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+responserules_runtime : 
+	@$(ECHO) "Building: responserules_runtime"
+	@+$(DOCKER_EXEC) $(MAKE) -C /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/src/responserules/runtime -f responserules_runtime_androidarm64.mak $(CLEANPARAM) SHELL=$(SHELL)
+
+# this is a bit over-inclusive, but the alternative (actually adding each referenced c/cpp/h file to
+# the tags file) seems like more work than it's worth.  feel free to fix that up if it bugs you. 
+TAGS:
+	@$(TOOL_PATH)rm -f TAGS
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.cpp' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.h' -print0 | $(XARGS) -r0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
+	@$(FIND)  -name '*.c' -print0 | $(XARGS) -r0 $(ETAGS) --declarations --ignore-indentation --append
+
+
+
+# Mark all the projects as phony or else make will see the directories by the same name and think certain targets 
+
+.PHONY: TAGS all all-targets showtargets regen showregen clean cleantargets cleanandremove relink launcher appframework interfaces tier0 tier1 tier2 tier3 vstdlib engine bitmap Bzip2 Dmxloader mathlib matsys_controls quickhull soundsystem_lowlevel vgui_controls videocfg vtf filesystem_stdio vpklib inputsystem vphysics havana_constraints hk_base hk_math ivp_compactbuilder ivp_physics materialsystem shaderlib shaderapidx9 datacache studiorender soundemittersystem vaudio_minimp3 SceneFileCache vscript vguimatsurface vgui_surfacelib vgui2 localize stdshader_dbg stdshader_dx9 panorama panorama_s1wrapper resourcefile panoramauiclient panorama_client panorama_text_pango Matchmaking_CSGO gcsdk matchmakingbase Client_Panorama_CSGO bonesetup choreoobjects mathlib_extended meshutils particles Raytrace Server_CSGO kv3lib responserules_runtime 
+
+
+
+# The standard clean command to clean it all out.
+
+clean: 
+	@$(DOCKER_EXEC) $(MAKE) -f $(lastword $(MAKEFILE_LIST)) -j$(MAKE_JOBS) all-targets CLEANPARAM=clean
+
+
+
+# clean targets, so we re-link next time.
+
+cleantargets: 
+	@$(DOCKER_EXEC) $(MAKE) -f $(lastword $(MAKEFILE_LIST)) -j$(MAKE_JOBS) all-targets CLEANPARAM=cleantargets
+
+
+
+# p4 edit and remove targets, so we get an entirely clean build.
+
+cleanandremove: 
+	@$(DOCKER_EXEC) $(MAKE) -f $(lastword $(MAKEFILE_LIST)) -j$(MAKE_JOBS) all-targets CLEANPARAM=cleanandremove
+
+
+
+#relink
+
+relink: cleantargets 
+	@$(DOCKER_EXEC) $(MAKE) -f $(lastword $(MAKEFILE_LIST)) -j$(MAKE_JOBS) all-targets
+
+
+
+# Here's a command to list out all the targets
+
+
+showtargets: 
+	@$(ECHO) '-------------------' && \
+	$(ECHO) '----- TARGETS -----' && \
+	$(ECHO) '-------------------' && \
+	$(ECHO) 'clean' && \
+	$(ECHO) 'regen' && \
+	$(ECHO) 'showregen' && \
+	$(ECHO) 'launcher' && \
+	$(ECHO) 'appframework' && \
+	$(ECHO) 'interfaces' && \
+	$(ECHO) 'tier0' && \
+	$(ECHO) 'tier1' && \
+	$(ECHO) 'tier2' && \
+	$(ECHO) 'tier3' && \
+	$(ECHO) 'vstdlib' && \
+	$(ECHO) 'engine' && \
+	$(ECHO) 'bitmap' && \
+	$(ECHO) 'Bzip2' && \
+	$(ECHO) 'Dmxloader' && \
+	$(ECHO) 'mathlib' && \
+	$(ECHO) 'matsys_controls' && \
+	$(ECHO) 'quickhull' && \
+	$(ECHO) 'soundsystem_lowlevel' && \
+	$(ECHO) 'vgui_controls' && \
+	$(ECHO) 'videocfg' && \
+	$(ECHO) 'vtf' && \
+	$(ECHO) 'filesystem_stdio' && \
+	$(ECHO) 'vpklib' && \
+	$(ECHO) 'inputsystem' && \
+	$(ECHO) 'vphysics' && \
+	$(ECHO) 'havana_constraints' && \
+	$(ECHO) 'hk_base' && \
+	$(ECHO) 'hk_math' && \
+	$(ECHO) 'ivp_compactbuilder' && \
+	$(ECHO) 'ivp_physics' && \
+	$(ECHO) 'materialsystem' && \
+	$(ECHO) 'shaderlib' && \
+	$(ECHO) 'shaderapidx9' && \
+	$(ECHO) 'datacache' && \
+	$(ECHO) 'studiorender' && \
+	$(ECHO) 'soundemittersystem' && \
+	$(ECHO) 'vaudio_minimp3' && \
+	$(ECHO) 'SceneFileCache' && \
+	$(ECHO) 'vscript' && \
+	$(ECHO) 'vguimatsurface' && \
+	$(ECHO) 'vgui_surfacelib' && \
+	$(ECHO) 'vgui2' && \
+	$(ECHO) 'localize' && \
+	$(ECHO) 'stdshader_dbg' && \
+	$(ECHO) 'stdshader_dx9' && \
+	$(ECHO) 'panorama' && \
+	$(ECHO) 'panorama_s1wrapper' && \
+	$(ECHO) 'resourcefile' && \
+	$(ECHO) 'panoramauiclient' && \
+	$(ECHO) 'panorama_client' && \
+	$(ECHO) 'panorama_text_pango' && \
+	$(ECHO) 'Matchmaking_CSGO' && \
+	$(ECHO) 'gcsdk' && \
+	$(ECHO) 'matchmakingbase' && \
+	$(ECHO) 'Client_Panorama_CSGO' && \
+	$(ECHO) 'bonesetup' && \
+	$(ECHO) 'choreoobjects' && \
+	$(ECHO) 'mathlib_extended' && \
+	$(ECHO) 'meshutils' && \
+	$(ECHO) 'particles' && \
+	$(ECHO) 'Raytrace' && \
+	$(ECHO) 'Server_CSGO' && \
+	$(ECHO) 'kv3lib' && \
+	$(ECHO) 'responserules_runtime'
+
+
+
+# Here's a command to regenerate this makefile
+
+
+regen: 
+	./devtools/bin/vpc_linux /csgo /androidarm64 @launcher @engine @filesystem_stdio @inputsystem @vphysics @materialsystem @shaderapidx9 @datacache @studiorender @soundemittersystem @vaudio_minimp3 @scenefilecache @vscript @vguimatsurface @vgui_dll @localize @stdshader_dbg @stdshader_dx9 @panorama @panoramauiclient @panorama_text_pango @matchmaking @client_panorama @server /nop4add /mksln csgo_android_engine /f 
+
+
+# Here's a command to list out all the targets
+
+
+showregen: 
+	@$(ECHO) ./devtools/bin/vpc_linux /csgo /androidarm64 @launcher @engine @filesystem_stdio @inputsystem @vphysics @materialsystem @shaderapidx9 @datacache @studiorender @soundemittersystem @vaudio_minimp3 @scenefilecache @vscript @vguimatsurface @vgui_dll @localize @stdshader_dbg @stdshader_dx9 @panorama @panoramauiclient @panorama_text_pango @matchmaking @client_panorama @server /nop4add /mksln csgo_android_engine /f 
+
+ifdef CHROOT_DEPENDENCY
+$(CHROOT_DEPENDENCY): $(CHROOT_TIMESTAMP_FILE)
+$(CHROOT_DEPENDENCY): SHELL = /bin/bash
+$(CHROOT_TIMESTAMP_FILE): $(CHROOT_TARBALL)
+	@echo "chroot ${CHROOT_NAME} at $(CHROOT_DIR) is out of date"
+	@echo You need to re-run sudo tools/runtime/linux/configure_runtime.sh ${CHROOT_NAME} ${RUNTIME_NAME}
+endif

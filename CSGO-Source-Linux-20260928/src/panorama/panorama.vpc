@@ -69,6 +69,7 @@ $Configuration
 		$AdditionalIncludeDirectories			"$BASE;..\thirdparty\asio\include"		[$V8_LINK_DEBUGGING_LIBS]
 		$AdditionalIncludeDirectories			"$BASE;..\thirdparty\cairo\include"
 		$AdditionalIncludeDirectories			"$BASE;..\thirdparty\libparsifal-0.8.3\include"
+		$AdditionalIncludeDirectories                   "$BASE;..\thirdparty\v8\include" [$ANDROIDALL]
 				
 		$Create/UsePrecompiledHeader			"Use Precompiled Header (/Yu)"
 		$Create/UsePCHThroughFile				"stdafx.h" 
@@ -97,7 +98,8 @@ $Configuration
 		$SystemFrameworks				"$BASE;Cocoa;SystemConfiguration;OpenGL;IOKit;DiskArbitration;Security;Carbon;AGL"
 			$SystemLibraries                "z;iconv;" [$OSXALL]
                 $SystemLibraries				"SDL3;Xtst;Xfixes;Xrandr;Xext;X11" [$LINUXAll]
-                $SystemLibraries				"SDL3;expat;cairo;z" [$ANDROIDALL]
+                $SystemLibraries				"SDL3;expat;cairo;z;v8_typeinfo_stub;crypto" [$ANDROIDALL]
+		$GCC_ExtraLinkerFlags                      "-L../lib/common/androidarm64 -L../../runtime/android/install/lib" [$ANDROIDALL]
 
 		// Due to vpxmt.lib we currently can't enable /safeseh in this project.
 		$ImageHasSafeExceptionHandlers		"false" [$WINDOWS]

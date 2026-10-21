@@ -25,7 +25,7 @@ $Configuration
 		$SystemFrameworks			"Carbon" [$OSXALL]
 		$GCC_ExtraLinkerFlags                   "-L/usr/lib32 -L/usr/lib -L/usr/lib/i386-linux-gnu" [$LINUXALL]
 		$SystemLibraries                        "fontconfig;freetype;SDL3"			[$LINUXALL]
-		$SystemLibraries                        "fontconfig;freetype;SDL3"			[$ANDROIDALL] // OHOS: linuxfont.cpp uses the fontconfig path
+		$SystemLibraries                        "fontconfig;freetype;SDL3;android"			[$ANDROIDALL] // OHOS: linuxfont.cpp uses the fontconfig path
 		$AdditionalDependencies			"$BASE vgui_surfacelib_360.lib"			[$X360]
 		$AdditionalDependencies			"$BASE vgui_surfacelib.lib"			[$WINDOWS]
 	}

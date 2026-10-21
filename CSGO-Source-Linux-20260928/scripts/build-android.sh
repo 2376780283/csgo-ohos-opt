@@ -121,6 +121,7 @@ build_foundation() {
 }
 
 build_engine_deps() {
+    export PROTOC="$repo_dir/src/thirdparty/protobuf-2.5.0/src/protoc"
     local libraries="$repo_dir/src/lib/public/androidarm64/$config"
     local protobuf="$repo_dir/src/thirdparty/protobuf-2.5.0"
     local cryptopp="$out/cryptopp-build"
