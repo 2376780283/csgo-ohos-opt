@@ -1,0 +1,1998 @@
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/bin/"
+      - "/usr/bin/"
+      - "/usr/local/bin/"
+    found: "/data/data/com.termux/files/usr/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineSystem.cmake:213 (message)"
+      - "CMakeLists.txt:39 (project)"
+    message: |
+      The target system is: Android - 1 - aarch64
+      The host system is: Android - 30 - aarch64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeNinjaFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Program used to build from build.ninja files."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ninja-build"
+      - "ninja"
+      - "samu"
+    candidate_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sbin/"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/usr/lib/aarch64-linux-android/30/bin/"
+      - "/usr/lib/aarch64-linux-android/30/sbin/"
+      - "/usr/lib/aarch64-linux-android/30/"
+    searched_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/ninja-build"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/ninja"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/samu"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sbin/ninja-build"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sbin/ninja"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sbin/samu"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/ninja-build"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/ninja"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/samu"
+      - "/data/data/com.termux/files/usr/bin/ninja-build"
+    found: "/data/data/com.termux/files/usr/bin/ninja"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:501 (find_file)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:538 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/"
+    found: "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:39 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang 
+      Build flags: -g;-DANDROID;-fdata-sections;-ffunction-sections;-funwind-tables;-fstack-protector-strong;-no-canonical-prefixes;-D_FORTIFY_SOURCE=2;-Wformat;-Werror=format-security
+      Id flags: -c;--target=aarch64-none-linux-android30 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+      
+      The C compiler identification is Clang, found in:
+        /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/4.4.4/CompilerIdC/CMakeCCompilerId.o
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld.lld"
+      - "ld"
+    candidate_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/usr/lib/aarch64-linux-android/30/bin/"
+      - "/usr/lib/aarch64-linux-android/30/sbin/"
+      - "/usr/lib/aarch64-linux-android/30/"
+    found: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-nm"
+      - "nm"
+    candidate_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/usr/lib/aarch64-linux-android/30/bin/"
+      - "/usr/lib/aarch64-linux-android/30/sbin/"
+      - "/usr/lib/aarch64-linux-android/30/"
+    found: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-nm"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-objdump"
+      - "objdump"
+    candidate_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/usr/lib/aarch64-linux-android/30/bin/"
+      - "/usr/lib/aarch64-linux-android/30/sbin/"
+      - "/usr/lib/aarch64-linux-android/30/"
+    found: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-objdump"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-objcopy"
+      - "objcopy"
+    candidate_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/usr/lib/aarch64-linux-android/30/bin/"
+      - "/usr/lib/aarch64-linux-android/30/sbin/"
+      - "/usr/lib/aarch64-linux-android/30/"
+    found: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-objcopy"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-readelf"
+      - "readelf"
+    candidate_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/usr/lib/aarch64-linux-android/30/bin/"
+      - "/usr/lib/aarch64-linux-android/30/sbin/"
+      - "/usr/lib/aarch64-linux-android/30/"
+    found: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-readelf"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-dlltool"
+      - "dlltool"
+    candidate_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/usr/lib/aarch64-linux-android/30/bin/"
+      - "/usr/lib/aarch64-linux-android/30/sbin/"
+      - "/usr/lib/aarch64-linux-android/30/"
+    found: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-dlltool"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-addr2line"
+      - "addr2line"
+    candidate_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/usr/lib/aarch64-linux-android/30/bin/"
+      - "/usr/lib/aarch64-linux-android/30/sbin/"
+      - "/usr/lib/aarch64-linux-android/30/"
+    found: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-addr2line"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/usr/lib/aarch64-linux-android/30/bin/"
+      - "/usr/lib/aarch64-linux-android/30/sbin/"
+      - "/usr/lib/aarch64-linux-android/30/"
+    searched_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/tapi"
+      - "/data/data/com.termux/files/usr/bin/tapi"
+      - "/data/data/com.termux/files/home/.dotnet/tools/tapi"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/tapi"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/tapi"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/tapi"
+      - "/usr/lib/aarch64-linux-android/30/bin/tapi"
+      - "/usr/lib/aarch64-linux-android/30/sbin/tapi"
+      - "/usr/lib/aarch64-linux-android/30/tapi"
+    found: false
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/Compiler/Clang-FindBinUtils.cmake:26 (find_program)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_AR"
+    description: "LLVM archiver"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ar-19.0"
+      - "llvm-ar-19"
+      - "llvm-ar19"
+      - "llvm-ar"
+    candidate_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/usr/lib/aarch64-linux-android/30/bin/"
+      - "/usr/lib/aarch64-linux-android/30/sbin/"
+      - "/usr/lib/aarch64-linux-android/30/"
+    searched_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ar-19.0"
+      - "/data/data/com.termux/files/usr/bin/llvm-ar-19.0"
+      - "/data/data/com.termux/files/home/.dotnet/tools/llvm-ar-19.0"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/llvm-ar-19.0"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/llvm-ar-19.0"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/llvm-ar-19.0"
+      - "/usr/lib/aarch64-linux-android/30/bin/llvm-ar-19.0"
+      - "/usr/lib/aarch64-linux-android/30/sbin/llvm-ar-19.0"
+      - "/usr/lib/aarch64-linux-android/30/llvm-ar-19.0"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ar-19"
+      - "/data/data/com.termux/files/usr/bin/llvm-ar-19"
+      - "/data/data/com.termux/files/home/.dotnet/tools/llvm-ar-19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/llvm-ar-19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/llvm-ar-19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/llvm-ar-19"
+      - "/usr/lib/aarch64-linux-android/30/bin/llvm-ar-19"
+      - "/usr/lib/aarch64-linux-android/30/sbin/llvm-ar-19"
+      - "/usr/lib/aarch64-linux-android/30/llvm-ar-19"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ar19"
+      - "/data/data/com.termux/files/usr/bin/llvm-ar19"
+      - "/data/data/com.termux/files/home/.dotnet/tools/llvm-ar19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/llvm-ar19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/llvm-ar19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/llvm-ar19"
+      - "/usr/lib/aarch64-linux-android/30/bin/llvm-ar19"
+      - "/usr/lib/aarch64-linux-android/30/sbin/llvm-ar19"
+      - "/usr/lib/aarch64-linux-android/30/llvm-ar19"
+    found: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ar"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/Compiler/Clang-FindBinUtils.cmake:38 (find_program)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_RANLIB"
+    description: "Generate index for LLVM archive"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ranlib-19.0"
+      - "llvm-ranlib-19"
+      - "llvm-ranlib19"
+      - "llvm-ranlib"
+    candidate_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/usr/lib/aarch64-linux-android/30/bin/"
+      - "/usr/lib/aarch64-linux-android/30/sbin/"
+      - "/usr/lib/aarch64-linux-android/30/"
+    searched_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ranlib-19.0"
+      - "/data/data/com.termux/files/usr/bin/llvm-ranlib-19.0"
+      - "/data/data/com.termux/files/home/.dotnet/tools/llvm-ranlib-19.0"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/llvm-ranlib-19.0"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/llvm-ranlib-19.0"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/llvm-ranlib-19.0"
+      - "/usr/lib/aarch64-linux-android/30/bin/llvm-ranlib-19.0"
+      - "/usr/lib/aarch64-linux-android/30/sbin/llvm-ranlib-19.0"
+      - "/usr/lib/aarch64-linux-android/30/llvm-ranlib-19.0"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ranlib-19"
+      - "/data/data/com.termux/files/usr/bin/llvm-ranlib-19"
+      - "/data/data/com.termux/files/home/.dotnet/tools/llvm-ranlib-19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/llvm-ranlib-19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/llvm-ranlib-19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/llvm-ranlib-19"
+      - "/usr/lib/aarch64-linux-android/30/bin/llvm-ranlib-19"
+      - "/usr/lib/aarch64-linux-android/30/sbin/llvm-ranlib-19"
+      - "/usr/lib/aarch64-linux-android/30/llvm-ranlib-19"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ranlib19"
+      - "/data/data/com.termux/files/usr/bin/llvm-ranlib19"
+      - "/data/data/com.termux/files/home/.dotnet/tools/llvm-ranlib19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/llvm-ranlib19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/llvm-ranlib19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/llvm-ranlib19"
+      - "/usr/lib/aarch64-linux-android/30/bin/llvm-ranlib19"
+      - "/usr/lib/aarch64-linux-android/30/sbin/llvm-ranlib19"
+      - "/usr/lib/aarch64-linux-android/30/llvm-ranlib19"
+    found: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ranlib"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/Compiler/Clang-FindBinUtils.cmake:50 (find_program)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:39 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_CLANG_SCAN_DEPS"
+    description: "`clang-scan-deps` dependency scanner"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "clang-scan-deps-19.0"
+      - "clang-scan-deps-19"
+      - "clang-scan-deps19"
+      - "clang-scan-deps"
+      - "clang-scan-deps-19.0"
+      - "clang-scan-deps-19"
+      - "clang-scan-deps19"
+      - "clang-scan-deps"
+    candidate_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/usr/lib/aarch64-linux-android/30/bin/"
+      - "/usr/lib/aarch64-linux-android/30/sbin/"
+      - "/usr/lib/aarch64-linux-android/30/"
+    searched_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps-19.0"
+      - "/data/data/com.termux/files/usr/bin/clang-scan-deps-19.0"
+      - "/data/data/com.termux/files/home/.dotnet/tools/clang-scan-deps-19.0"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/clang-scan-deps-19.0"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/clang-scan-deps-19.0"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/clang-scan-deps-19.0"
+      - "/usr/lib/aarch64-linux-android/30/bin/clang-scan-deps-19.0"
+      - "/usr/lib/aarch64-linux-android/30/sbin/clang-scan-deps-19.0"
+      - "/usr/lib/aarch64-linux-android/30/clang-scan-deps-19.0"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps-19"
+      - "/data/data/com.termux/files/usr/bin/clang-scan-deps-19"
+      - "/data/data/com.termux/files/home/.dotnet/tools/clang-scan-deps-19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/clang-scan-deps-19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/clang-scan-deps-19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/clang-scan-deps-19"
+      - "/usr/lib/aarch64-linux-android/30/bin/clang-scan-deps-19"
+      - "/usr/lib/aarch64-linux-android/30/sbin/clang-scan-deps-19"
+      - "/usr/lib/aarch64-linux-android/30/clang-scan-deps-19"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps19"
+      - "/data/data/com.termux/files/usr/bin/clang-scan-deps19"
+      - "/data/data/com.termux/files/home/.dotnet/tools/clang-scan-deps19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/clang-scan-deps19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/clang-scan-deps19"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/clang-scan-deps19"
+      - "/usr/lib/aarch64-linux-android/30/bin/clang-scan-deps19"
+      - "/usr/lib/aarch64-linux-android/30/sbin/clang-scan-deps19"
+      - "/usr/lib/aarch64-linux-android/30/clang-scan-deps19"
+    found: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:123 (try_compile)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:39 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-R2qQ2B"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-R2qQ2B"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: false
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-R2qQ2B'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_1b58d
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE   -v -MD -MT CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o -c /data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeCCompilerABI.c
+        Android clang version 19.0.0 (https://github.com/HomuHomu833/llvm-custom)
+        Target: aarch64-none-linux-android30
+        Thread model: posix
+        InstalledDir: /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin
+         (in-process)
+         "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang" -cc1 -triple aarch64-none-linux-android30 -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic -target-feature +v8a -target-feature +fp-armv8 -target-feature +neon -target-feature +fix-cortex-a53-835769 -target-abi aapcs -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -fdebug-compilation-dir=/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-R2qQ2B -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-R2qQ2B -resource-dir /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19 -dependency-file CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o -sys-header-deps -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -internal-isystem /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/include -internal-isystem /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/local/include -internal-externc-isystem /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/aarch64-linux-android -internal-externc-isystem /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/include -internal-externc-isystem /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include -Wformat -ferror-limit 19 -stack-protector 2 -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -target-feature +outline-atomics -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o -x c /data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeCCompilerABI.c
+        clang -cc1 version 19.0.0 based upon LLVM 19.0.0 default target aarch64-linux-android25
+        ignoring nonexistent directory "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/local/include"
+        ignoring nonexistent directory "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/include
+         /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/aarch64-linux-android
+         /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include
+        End of search list.
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments   -v CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o -o cmTC_1b58d   && :
+        Android clang version 19.0.0 (https://github.com/HomuHomu833/llvm-custom)
+        Target: aarch64-none-linux-android30
+        Thread model: posix
+        InstalledDir: /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin
+         "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld" --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -EL --fix-cortex-a53-843419 -z now -z relro -z max-page-size=16384 --hash-style=gnu --eh-frame-hdr -m aarch64linux -pie -dynamic-linker /system/bin/linker64 -o cmTC_1b58d /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/aarch64 -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30 -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib --build-id=sha1 --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl -lc /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:255 (message)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:39 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/include]
+          add: [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/aarch64-linux-android]
+          add: [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include]
+        end of search list found
+        collapse include dir [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/include] ==> [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/include]
+        collapse include dir [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/aarch64-linux-android] ==> [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/aarch64-linux-android]
+        collapse include dir [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include] ==> [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include]
+        implicit include dirs: [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/include;/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/aarch64-linux-android;/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:291 (message)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:39 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wild|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wild))("|,| |$)]
+        ignore line: [Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-R2qQ2B']
+        ignore line: []
+        ignore line: [Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_1b58d]
+        ignore line: [[1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE   -v -MD -MT CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o -c /data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeCCompilerABI.c]
+        ignore line: [Android clang version 19.0.0 (https://github.com/HomuHomu833/llvm-custom)]
+        ignore line: [Target: aarch64-none-linux-android30]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin]
+        ignore line: [ (in-process)]
+        ignore line: [ "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang" -cc1 -triple aarch64-none-linux-android30 -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic -target-feature +v8a -target-feature +fp-armv8 -target-feature +neon -target-feature +fix-cortex-a53-835769 -target-abi aapcs -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -fdebug-compilation-dir=/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-R2qQ2B -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-R2qQ2B -resource-dir /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19 -dependency-file CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o -sys-header-deps -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -internal-isystem /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/include -internal-isystem /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/local/include -internal-externc-isystem /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/aarch64-linux-android -internal-externc-isystem /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/include -internal-externc-isystem /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include -Wformat -ferror-limit 19 -stack-protector 2 -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -target-feature +outline-atomics -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o -x c /data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang -cc1 version 19.0.0 based upon LLVM 19.0.0 default target aarch64-linux-android25]
+        ignore line: [ignoring nonexistent directory "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/local/include"]
+        ignore line: [ignoring nonexistent directory "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/include]
+        ignore line: [ /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/aarch64-linux-android]
+        ignore line: [ /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include]
+        ignore line: [End of search list.]
+        ignore line: [[2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Wl --build-id=sha1 -Wl --no-undefined-version -Wl --fatal-warnings -Wl --no-undefined -Qunused-arguments   -v CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o -o cmTC_1b58d   && :]
+        ignore line: [Android clang version 19.0.0 (https://github.com/HomuHomu833/llvm-custom)]
+        ignore line: [Target: aarch64-none-linux-android30]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin]
+        link line: [ "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld" --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -EL --fix-cortex-a53-843419 -z now -z relro -z max-page-size=16384 --hash-style=gnu --eh-frame-hdr -m aarch64linux -pie -dynamic-linker /system/bin/linker64 -o cmTC_1b58d /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/aarch64 -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30 -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib --build-id=sha1 --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl -lc /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o] ==> linker [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld]
+        link line: [ "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld" --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -EL --fix-cortex-a53-843419 -z now -z relro -z max-page-size=16384 --hash-style=gnu --eh-frame-hdr -m aarch64linux -pie -dynamic-linker /system/bin/linker64 -o cmTC_1b58d /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/aarch64 -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30 -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib --build-id=sha1 --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl -lc /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o] ==> linker architecture flags [-m;aarch64linux]
+        link line: [ "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld" --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -EL --fix-cortex-a53-843419 -z now -z relro -z max-page-size=16384 --hash-style=gnu --eh-frame-hdr -m aarch64linux -pie -dynamic-linker /system/bin/linker64 -o cmTC_1b58d /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/aarch64 -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30 -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android -L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib --build-id=sha1 --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl -lc /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o]
+          arg [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld] ==> ignore
+          arg [--sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot] ==> ignore
+          arg [-EL] ==> ignore
+          arg [--fix-cortex-a53-843419] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-zmax-page-size=16384] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [aarch64linux] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/system/bin/linker64] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_1b58d] ==> ignore
+          arg [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o] ==> obj [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o]
+          arg [-L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/aarch64] ==> dir [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/aarch64]
+          arg [-L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30] ==> dir [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30]
+          arg [-L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android] ==> dir [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android]
+          arg [-L/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib] ==> dir [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib]
+          arg [--build-id=sha1] ==> ignore
+          arg [--no-undefined-version] ==> ignore
+          arg [--fatal-warnings] ==> ignore
+          arg [--no-undefined] ==> ignore
+          arg [CMakeFiles/cmTC_1b58d.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a] ==> lib [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a]
+          arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+          arg [-ldl] ==> lib [dl]
+          arg [-lc] ==> lib [c]
+          arg [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a] ==> lib [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a]
+          arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+          arg [-ldl] ==> lib [dl]
+          arg [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o] ==> obj [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o]
+        linker tool for 'C': /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld -m;aarch64linux
+        remove lib [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a]
+        remove lib [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/libclang_rt.builtins-aarch64-android.a]
+        collapse library dir [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/aarch64] ==> [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/aarch64]
+        collapse library dir [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30] ==> [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30]
+        collapse library dir [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android] ==> [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android]
+        collapse library dir [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib] ==> [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib]
+        implicit libs: [-l:libunwind.a;dl;c;-l:libunwind.a;dl]
+        implicit objs: [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o;/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o]
+        implicit dirs: [/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/lib/clang/19/lib/linux/aarch64;/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/30;/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android;/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/Internal/CMakeDetermineLinkerId.cmake:41 (message)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:337 (cmake_determine_linker_id)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:39 (project)"
+    message: |
+      Running the C compiler's linker: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld" "-v"
+      LLD 19.0.0 (compatible with GNU linkers)
+  -
+    kind: "find-v1"
+    backtrace:
+      - "CMakeLists.txt:66 (find_program)"
+    mode: "program"
+    variable: "DOCBOOK_TO_MAN"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "docbook2x-man"
+      - "db2x_docbook2man"
+      - "docbook2man"
+      - "docbook-to-man"
+    candidate_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sbin/"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/home/.dotnet/tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/"
+      - "/usr/lib/aarch64-linux-android/30/bin/"
+      - "/usr/lib/aarch64-linux-android/30/sbin/"
+      - "/usr/lib/aarch64-linux-android/30/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/data/data/com.termux/files/usr/sbin/"
+      - "/data/data/com.termux/files/usr/"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/bin/"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/sbin/"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/docbook2x-man"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sbin/docbook2x-man"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/docbook2x-man"
+      - "/data/data/com.termux/files/usr/bin/docbook2x-man"
+      - "/data/data/com.termux/files/home/.dotnet/tools/docbook2x-man"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/docbook2x-man"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/docbook2x-man"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/docbook2x-man"
+      - "/usr/lib/aarch64-linux-android/30/bin/docbook2x-man"
+      - "/usr/lib/aarch64-linux-android/30/sbin/docbook2x-man"
+      - "/usr/lib/aarch64-linux-android/30/docbook2x-man"
+      - "/usr/local/bin/docbook2x-man"
+      - "/usr/local/sbin/docbook2x-man"
+      - "/usr/local/docbook2x-man"
+      - "/usr/bin/docbook2x-man"
+      - "/usr/sbin/docbook2x-man"
+      - "/usr/docbook2x-man"
+      - "/bin/docbook2x-man"
+      - "/sbin/docbook2x-man"
+      - "/data/data/com.termux/files/usr/bin/docbook2x-man"
+      - "/data/data/com.termux/files/usr/sbin/docbook2x-man"
+      - "/data/data/com.termux/files/usr/docbook2x-man"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/bin/docbook2x-man"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/sbin/docbook2x-man"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/docbook2x-man"
+      - "/usr/X11R6/bin/docbook2x-man"
+      - "/usr/X11R6/sbin/docbook2x-man"
+      - "/usr/X11R6/docbook2x-man"
+      - "/usr/pkg/bin/docbook2x-man"
+      - "/usr/pkg/sbin/docbook2x-man"
+      - "/usr/pkg/docbook2x-man"
+      - "/opt/bin/docbook2x-man"
+      - "/opt/sbin/docbook2x-man"
+      - "/opt/docbook2x-man"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/db2x_docbook2man"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sbin/db2x_docbook2man"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/db2x_docbook2man"
+      - "/data/data/com.termux/files/usr/bin/db2x_docbook2man"
+      - "/data/data/com.termux/files/home/.dotnet/tools/db2x_docbook2man"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/db2x_docbook2man"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/db2x_docbook2man"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/db2x_docbook2man"
+      - "/usr/lib/aarch64-linux-android/30/bin/db2x_docbook2man"
+      - "/usr/lib/aarch64-linux-android/30/sbin/db2x_docbook2man"
+      - "/usr/lib/aarch64-linux-android/30/db2x_docbook2man"
+      - "/usr/local/bin/db2x_docbook2man"
+      - "/usr/local/sbin/db2x_docbook2man"
+      - "/usr/local/db2x_docbook2man"
+      - "/usr/bin/db2x_docbook2man"
+      - "/usr/sbin/db2x_docbook2man"
+      - "/usr/db2x_docbook2man"
+      - "/bin/db2x_docbook2man"
+      - "/sbin/db2x_docbook2man"
+      - "/data/data/com.termux/files/usr/bin/db2x_docbook2man"
+      - "/data/data/com.termux/files/usr/sbin/db2x_docbook2man"
+      - "/data/data/com.termux/files/usr/db2x_docbook2man"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/bin/db2x_docbook2man"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/sbin/db2x_docbook2man"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/db2x_docbook2man"
+      - "/usr/X11R6/bin/db2x_docbook2man"
+      - "/usr/X11R6/sbin/db2x_docbook2man"
+      - "/usr/X11R6/db2x_docbook2man"
+      - "/usr/pkg/bin/db2x_docbook2man"
+      - "/usr/pkg/sbin/db2x_docbook2man"
+      - "/usr/pkg/db2x_docbook2man"
+      - "/opt/bin/db2x_docbook2man"
+      - "/opt/sbin/db2x_docbook2man"
+      - "/opt/db2x_docbook2man"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/docbook2man"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sbin/docbook2man"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/docbook2man"
+      - "/data/data/com.termux/files/usr/bin/docbook2man"
+      - "/data/data/com.termux/files/home/.dotnet/tools/docbook2man"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/docbook2man"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/docbook2man"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/docbook2man"
+      - "/usr/lib/aarch64-linux-android/30/bin/docbook2man"
+      - "/usr/lib/aarch64-linux-android/30/sbin/docbook2man"
+      - "/usr/lib/aarch64-linux-android/30/docbook2man"
+      - "/usr/local/bin/docbook2man"
+      - "/usr/local/sbin/docbook2man"
+      - "/usr/local/docbook2man"
+      - "/usr/bin/docbook2man"
+      - "/usr/sbin/docbook2man"
+      - "/usr/docbook2man"
+      - "/bin/docbook2man"
+      - "/sbin/docbook2man"
+      - "/data/data/com.termux/files/usr/bin/docbook2man"
+      - "/data/data/com.termux/files/usr/sbin/docbook2man"
+      - "/data/data/com.termux/files/usr/docbook2man"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/bin/docbook2man"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/sbin/docbook2man"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/docbook2man"
+      - "/usr/X11R6/bin/docbook2man"
+      - "/usr/X11R6/sbin/docbook2man"
+      - "/usr/X11R6/docbook2man"
+      - "/usr/pkg/bin/docbook2man"
+      - "/usr/pkg/sbin/docbook2man"
+      - "/usr/pkg/docbook2man"
+      - "/opt/bin/docbook2man"
+      - "/opt/sbin/docbook2man"
+      - "/opt/docbook2man"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/docbook-to-man"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sbin/docbook-to-man"
+      - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/docbook-to-man"
+      - "/data/data/com.termux/files/usr/bin/docbook-to-man"
+      - "/data/data/com.termux/files/home/.dotnet/tools/docbook-to-man"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools/docbook-to-man"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin/docbook-to-man"
+      - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0/docbook-to-man"
+      - "/usr/lib/aarch64-linux-android/30/bin/docbook-to-man"
+      - "/usr/lib/aarch64-linux-android/30/sbin/docbook-to-man"
+      - "/usr/lib/aarch64-linux-android/30/docbook-to-man"
+      - "/usr/local/bin/docbook-to-man"
+      - "/usr/local/sbin/docbook-to-man"
+      - "/usr/local/docbook-to-man"
+      - "/usr/bin/docbook-to-man"
+      - "/usr/sbin/docbook-to-man"
+      - "/usr/docbook-to-man"
+      - "/bin/docbook-to-man"
+      - "/sbin/docbook-to-man"
+      - "/data/data/com.termux/files/usr/bin/docbook-to-man"
+      - "/data/data/com.termux/files/usr/sbin/docbook-to-man"
+      - "/data/data/com.termux/files/usr/docbook-to-man"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/bin/docbook-to-man"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/sbin/docbook-to-man"
+      - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/docbook-to-man"
+      - "/usr/X11R6/bin/docbook-to-man"
+      - "/usr/X11R6/sbin/docbook-to-man"
+      - "/usr/X11R6/docbook-to-man"
+      - "/usr/pkg/bin/docbook-to-man"
+      - "/usr/pkg/sbin/docbook-to-man"
+      - "/usr/pkg/docbook-to-man"
+      - "/opt/bin/docbook-to-man"
+      - "/opt/sbin/docbook-to-man"
+      - "/opt/docbook-to-man"
+    found: false
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+        - "/data/data/com.termux/files/home/.dotnet/tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/platform-tools"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/cmdline-tools/bin"
+        - "/data/data/com.termux/files/home/toolchains/android/android-sdk/build-tools/36.1.0"
+      CMAKE_INSTALL_PREFIX: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/30"
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/data/data/com.termux/files/usr"
+        - "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckIncludeFile.cmake:157 (try_compile)"
+      - "ConfigureChecks.cmake:9 (check_include_file)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for dlfcn.h"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-9zGwCb"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-9zGwCb"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_DLFCN_H"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-9zGwCb'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_28f84
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_28f84.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_28f84.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_28f84.dir/CheckIncludeFile.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-9zGwCb/CheckIncludeFile.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_28f84.dir/CheckIncludeFile.c.o -o cmTC_28f84  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckIncludeFile.cmake:157 (try_compile)"
+      - "ConfigureChecks.cmake:10 (check_include_file)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for fcntl.h"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-FwXXi2"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-FwXXi2"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_FCNTL_H"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-FwXXi2'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_2d459
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_2d459.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_2d459.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_2d459.dir/CheckIncludeFile.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-FwXXi2/CheckIncludeFile.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_2d459.dir/CheckIncludeFile.c.o -o cmTC_2d459  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckIncludeFile.cmake:157 (try_compile)"
+      - "ConfigureChecks.cmake:11 (check_include_file)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for inttypes.h"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-QJYgse"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-QJYgse"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_INTTYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-QJYgse'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_ddb20
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_ddb20.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_ddb20.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_ddb20.dir/CheckIncludeFile.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-QJYgse/CheckIncludeFile.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_ddb20.dir/CheckIncludeFile.c.o -o cmTC_ddb20  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckIncludeFile.cmake:157 (try_compile)"
+      - "ConfigureChecks.cmake:12 (check_include_file)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for memory.h"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-Le2BaC"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-Le2BaC"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_MEMORY_H"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-Le2BaC'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_3dcf3
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_3dcf3.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_3dcf3.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_3dcf3.dir/CheckIncludeFile.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-Le2BaC/CheckIncludeFile.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_3dcf3.dir/CheckIncludeFile.c.o -o cmTC_3dcf3  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckIncludeFile.cmake:157 (try_compile)"
+      - "ConfigureChecks.cmake:13 (check_include_file)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for stdint.h"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-1kefKP"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-1kefKP"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-1kefKP'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_4a74b
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_4a74b.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_4a74b.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_4a74b.dir/CheckIncludeFile.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-1kefKP/CheckIncludeFile.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_4a74b.dir/CheckIncludeFile.c.o -o cmTC_4a74b  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckIncludeFile.cmake:157 (try_compile)"
+      - "ConfigureChecks.cmake:14 (check_include_file)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for stdlib.h"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-03B0nQ"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-03B0nQ"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_STDLIB_H"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-03B0nQ'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_33e2b
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_33e2b.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_33e2b.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_33e2b.dir/CheckIncludeFile.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-03B0nQ/CheckIncludeFile.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_33e2b.dir/CheckIncludeFile.c.o -o cmTC_33e2b  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckIncludeFile.cmake:157 (try_compile)"
+      - "ConfigureChecks.cmake:15 (check_include_file)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for strings.h"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-jCT0Lj"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-jCT0Lj"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_STRINGS_H"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-jCT0Lj'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_76dff
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_76dff.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_76dff.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_76dff.dir/CheckIncludeFile.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-jCT0Lj/CheckIncludeFile.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_76dff.dir/CheckIncludeFile.c.o -o cmTC_76dff  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckIncludeFile.cmake:157 (try_compile)"
+      - "ConfigureChecks.cmake:16 (check_include_file)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for string.h"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-SZhKdZ"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-SZhKdZ"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_STRING_H"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-SZhKdZ'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_82ffa
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_82ffa.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_82ffa.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_82ffa.dir/CheckIncludeFile.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-SZhKdZ/CheckIncludeFile.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_82ffa.dir/CheckIncludeFile.c.o -o cmTC_82ffa  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckIncludeFile.cmake:157 (try_compile)"
+      - "ConfigureChecks.cmake:17 (check_include_file)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for sys/stat.h"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-7mUwk9"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-7mUwk9"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_SYS_STAT_H"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-7mUwk9'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_ce597
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_ce597.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_ce597.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_ce597.dir/CheckIncludeFile.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-7mUwk9/CheckIncludeFile.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_ce597.dir/CheckIncludeFile.c.o -o cmTC_ce597  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckIncludeFile.cmake:157 (try_compile)"
+      - "ConfigureChecks.cmake:18 (check_include_file)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for sys/types.h"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-EEvAJs"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-EEvAJs"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-EEvAJs'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_b04ab
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_b04ab.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_b04ab.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_b04ab.dir/CheckIncludeFile.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-EEvAJs/CheckIncludeFile.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_b04ab.dir/CheckIncludeFile.c.o -o cmTC_b04ab  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckIncludeFile.cmake:157 (try_compile)"
+      - "ConfigureChecks.cmake:19 (check_include_file)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for unistd.h"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-HjVJK5"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-HjVJK5"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_UNISTD_H"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-HjVJK5'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_67e91
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_67e91.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_67e91.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_67e91.dir/CheckIncludeFile.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-HjVJK5/CheckIncludeFile.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_67e91.dir/CheckIncludeFile.c.o -o cmTC_67e91  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckSymbolExists.cmake:171 (try_compile)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckSymbolExists.cmake:99 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "ConfigureChecks.cmake:21 (check_symbol_exists)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for getpagesize"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-meNgnR"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-meNgnR"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_GETPAGESIZE"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-meNgnR'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_8d34b
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE -MD -MT CMakeFiles/cmTC_8d34b.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_8d34b.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_8d34b.dir/CheckSymbolExists.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-meNgnR/CheckSymbolExists.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_8d34b.dir/CheckSymbolExists.c.o -o cmTC_8d34b  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckSymbolExists.cmake:171 (try_compile)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckSymbolExists.cmake:99 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "ConfigureChecks.cmake:22 (check_symbol_exists)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for mmap"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-LVxU2z"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-LVxU2z"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_MMAP"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-LVxU2z'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_94003
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE -MD -MT CMakeFiles/cmTC_94003.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_94003.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_94003.dir/CheckSymbolExists.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-LVxU2z/CheckSymbolExists.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_94003.dir/CheckSymbolExists.c.o -o cmTC_94003  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckSymbolExists.cmake:171 (try_compile)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckSymbolExists.cmake:99 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "ConfigureChecks.cmake:23 (check_symbol_exists)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for getrandom"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-Ai6nMg"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-Ai6nMg"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_GETRANDOM"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-Ai6nMg'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_45e54
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE -MD -MT CMakeFiles/cmTC_45e54.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_45e54.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_45e54.dir/CheckSymbolExists.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-Ai6nMg/CheckSymbolExists.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_45e54.dir/CheckSymbolExists.c.o -o cmTC_45e54  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckSymbolExists.cmake:171 (try_compile)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckSymbolExists.cmake:99 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "ConfigureChecks.cmake:31 (check_symbol_exists)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for arc4random_buf"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-zi45t7"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-zi45t7"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_ARC4RANDOM_BUF"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-zi45t7'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_70ab9
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE -MD -MT CMakeFiles/cmTC_70ab9.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_70ab9.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_70ab9.dir/CheckSymbolExists.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-zi45t7/CheckSymbolExists.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_70ab9.dir/CheckSymbolExists.c.o -o cmTC_70ab9  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckIncludeFiles.cmake:184 (try_compile)"
+      - "ConfigureChecks.cmake:38 (check_include_files)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for 4 include files stdlib.h, ..., float.h"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-4JGvVo"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-4JGvVo"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "STDC_HEADERS"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-4JGvVo'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_d3f93
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_d3f93.dir/STDC_HEADERS.c.o -MF CMakeFiles/cmTC_d3f93.dir/STDC_HEADERS.c.o.d -o CMakeFiles/cmTC_d3f93.dir/STDC_HEADERS.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-4JGvVo/STDC_HEADERS.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_d3f93.dir/STDC_HEADERS.c.o -o cmTC_d3f93  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckSymbolExists.cmake:171 (try_compile)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckSymbolExists.cmake:99 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "ConfigureChecks.cmake:49 (check_symbol_exists)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for off_t"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-qZe0pC"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-qZe0pC"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "OFF_T"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-qZe0pC'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_b3aa1
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE -MD -MT CMakeFiles/cmTC_b3aa1.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_b3aa1.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_b3aa1.dir/CheckSymbolExists.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-qZe0pC/CheckSymbolExists.c
+        FAILED: [code=1] CMakeFiles/cmTC_b3aa1.dir/CheckSymbolExists.c.o 
+        /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE -MD -MT CMakeFiles/cmTC_b3aa1.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_b3aa1.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_b3aa1.dir/CheckSymbolExists.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-qZe0pC/CheckSymbolExists.c
+        /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-qZe0pC/CheckSymbolExists.c:8:19: error: unexpected type name 'off_t': expected expression
+            8 |   return ((int*)(&off_t))[argc];
+              |                   ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckSymbolExists.cmake:171 (try_compile)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckSymbolExists.cmake:99 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "ConfigureChecks.cmake:50 (check_symbol_exists)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for size_t"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-pO1mSK"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-pO1mSK"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "SIZE_T"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-pO1mSK'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_42ef8
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE -MD -MT CMakeFiles/cmTC_42ef8.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_42ef8.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_42ef8.dir/CheckSymbolExists.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-pO1mSK/CheckSymbolExists.c
+        FAILED: [code=1] CMakeFiles/cmTC_42ef8.dir/CheckSymbolExists.c.o 
+        /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE -MD -MT CMakeFiles/cmTC_42ef8.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_42ef8.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_42ef8.dir/CheckSymbolExists.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-pO1mSK/CheckSymbolExists.c
+        /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-pO1mSK/CheckSymbolExists.c:8:19: error: unexpected type name 'size_t': expected expression
+            8 |   return ((int*)(&size_t))[argc];
+              |                   ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckCSourceCompiles.cmake:103 (cmake_check_source_compiles)"
+      - "ConfigureChecks.cmake:56 (check_c_source_compiles)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Performing Test HAVE_SYSCALL_GETRANDOM"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-0vTocf"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-0vTocf"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "HAVE_SYSCALL_GETRANDOM"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-0vTocf'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_85dd4
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -DHAVE_SYSCALL_GETRANDOM  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_85dd4.dir/src.c.o -MF CMakeFiles/cmTC_85dd4.dir/src.c.o.d -o CMakeFiles/cmTC_85dd4.dir/src.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-0vTocf/src.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_85dd4.dir/src.c.o -o cmTC_85dd4  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "ConfigureChecks.cmake:66 (check_c_compiler_flag)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Performing Test FLAG_NO_STRICT_ALIASING"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-K0fSvH"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-K0fSvH"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "FLAG_NO_STRICT_ALIASING"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-K0fSvH'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_77578
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -DFLAG_NO_STRICT_ALIASING  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE   -fno-strict-aliasing -MD -MT CMakeFiles/cmTC_77578.dir/src.c.o -MF CMakeFiles/cmTC_77578.dir/src.c.o.d -o CMakeFiles/cmTC_77578.dir/src.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-K0fSvH/src.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_77578.dir/src.c.o -o cmTC_77578  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "ConfigureChecks.cmake:67 (check_c_compiler_flag)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Performing Test FLAG_VISIBILITY"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-7W4hwJ"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-7W4hwJ"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "FLAG_VISIBILITY"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-7W4hwJ'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_ea25a
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -DFLAG_VISIBILITY  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE   -fvisibility=hidden -MD -MT CMakeFiles/cmTC_ea25a.dir/src.c.o -MF CMakeFiles/cmTC_ea25a.dir/src.c.o.d -o CMakeFiles/cmTC_ea25a.dir/src.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-7W4hwJ/src.c
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_ea25a.dir/src.c.o -o cmTC_ea25a  -latomic -lm && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/share/cmake-4.4/Modules/CheckLibraryExists.cmake:142 (try_compile)"
+      - "ConfigureChecks.cmake:69 (check_library_exists)"
+      - "CMakeLists.txt:258 (include)"
+    checks:
+      - "Looking for cos in m"
+    directories:
+      source: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-uU3xQV"
+      binary: "/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-uU3xQV"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-30"
+      ANDROID_STL: "c++_shared"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android30"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security "
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "_EXPAT_LIBM_FOUND"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-uU3xQV'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/bin/ninja -v cmTC_82dcb
+        [1/2] /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -DCHECK_FUNCTION_EXISTS=cos  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_82dcb.dir/CheckFunctionExists.c.o -MF CMakeFiles/cmTC_82dcb.dir/CheckFunctionExists.c.o.d -o CMakeFiles/cmTC_82dcb.dir/CheckFunctionExists.c.o -c /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-uU3xQV/CheckFunctionExists.c
+        /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-uU3xQV/CheckFunctionExists.c:7:3: warning: incompatible redeclaration of library function 'cos' [-Wincompatible-library-redeclaration]
+            7 |   CHECK_FUNCTION_EXISTS(void);
+              |   ^
+        <command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+            1 | #define CHECK_FUNCTION_EXISTS cos
+              |                               ^
+        /data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/CMakeScratch/TryCompile-uU3xQV/CheckFunctionExists.c:7:3: note: 'cos' is a builtin with type 'double (double)'
+        <command line>:1:31: note: expanded from macro 'CHECK_FUNCTION_EXISTS'
+            1 | #define CHECK_FUNCTION_EXISTS cos
+              |                               ^
+        1 warning generated.
+        [2/2] : && /data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=aarch64-none-linux-android30 --sysroot=/data/data/com.termux/files/home/toolchains/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_82dcb.dir/CheckFunctionExists.c.o -o cmTC_82dcb  -lm  -latomic -lm && :
+        
+      exitCode: 0
+...

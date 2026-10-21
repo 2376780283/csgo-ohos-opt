@@ -207,7 +207,7 @@ CFLAGS+= -DCOMPILER_GCC
 # set, so if any of them change, the dependencies are re-made
 MAKEDEPEND=$(CXX) -M -MT $@ -MM $(CFLAGS) $< | sed -e 's@^\(.*\)\.o:@\1.d \1.o:@' > $(@:.o=.d)
 COMPILE=$(CXX) -c $(CFLAGS) -o $@ $<
-LINK=$(CXX) $(CONFIG_DEPENDENT_FLAGS)  -o "$(OUTFILE)" $(OBJS) -ldl -lpthread
+LINK=$(CXX) $(CONFIG_DEPENDENT_FLAGS)  -o "$(OUTFILE)" $(OBJS) -L/data/data/com.termux/files/usr/lib -liconv -landroid-glob -ldl -lpthread
 
 ifeq "$(OS)" "Darwin"
 LINK+=-liconv -framework Foundation

@@ -429,7 +429,7 @@ void initializePaths(bool sourceResources) {
         CSGO_BUILD_TYPE, CSGO_BUILD_ID, getpid(), SDL_GetVersion(), sysconf(_SC_PAGESIZE), logs.c_str());
     {
         const char* envRoot = getenv("CSGO_OHOS_GAME_ROOT");
-        const char* sdlPath = SDL_GetOpenHarmonyInternalStoragePath();
+        const char* sdlPath = PLATFORM_INTERNAL_STORAGE;
         log("CSGO_TRACE: ResourceRoot='%s' env='%s' sdl='%s'",
             ResourceRoot(), envRoot ? envRoot : "(unset)", sdlPath ? sdlPath : "(null)");
     }

@@ -1,0 +1,9 @@
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/expat.dir
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/package.dir
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/package_source.dir
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/edit_cache.dir
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/rebuild_cache.dir
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/list_install_components.dir
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/install.dir
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/install/local.dir
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/CMakeFiles/install/strip.dir

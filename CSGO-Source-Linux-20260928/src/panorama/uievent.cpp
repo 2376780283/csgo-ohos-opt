@@ -935,7 +935,7 @@ template <> void V8ParamToPanoramaType< float >( const v8::Handle<v8::Value> &pV
 {
 	if( pValueIn->IsNumber() )
 	{
-		*out = (float)pValueIn->ToNumber()->Value();
+		*out = (float)pValueIn->ToNumber( v8::Isolate::GetCurrent()->GetCurrentContext() ).ToLocalChecked()->Value();
 	}
 	else
 	{
@@ -950,7 +950,7 @@ template <> void V8ParamToPanoramaType< double >( const v8::Handle<v8::Value> &p
 {
 	if( pValueIn->IsNumber() )
 	{
-		*out = (double)pValueIn->ToNumber()->Value();
+		*out = (double)pValueIn->ToNumber( v8::Isolate::GetCurrent()->GetCurrentContext() ).ToLocalChecked()->Value();
 	}
 	else
 	{
@@ -965,7 +965,7 @@ template <> void V8ParamToPanoramaType< int >( const v8::Handle<v8::Value> &pVal
 {
 	if( pValueIn->IsNumber() )
 	{
-		*out = (int)pValueIn->ToNumber()->Value();
+		*out = (int)pValueIn->ToNumber( v8::Isolate::GetCurrent()->GetCurrentContext() ).ToLocalChecked()->Value();
 	}
 	else
 	{
@@ -980,7 +980,7 @@ template <> void V8ParamToPanoramaType< uint32 >( const v8::Handle<v8::Value> &p
 {
 	if( pValueIn->IsNumber() )
 	{
-		*out = (uint32)pValueIn->ToNumber()->Value();
+		*out = (uint32)pValueIn->ToNumber( v8::Isolate::GetCurrent()->GetCurrentContext() ).ToLocalChecked()->Value();
 	}
 	else
 	{
@@ -995,7 +995,7 @@ template <> void V8ParamToPanoramaType< uint64 >( const v8::Handle<v8::Value> &p
 {
 	if( pValueIn->IsNumber() )
 	{
-		*out = (uint64)pValueIn->ToNumber()->Value();
+		*out = (uint64)pValueIn->ToNumber( v8::Isolate::GetCurrent()->GetCurrentContext() ).ToLocalChecked()->Value();
 	}
 	else if ( pValueIn->IsString() )
 	{
@@ -1021,7 +1021,7 @@ template <> void V8ParamToPanoramaType< bool >( const v8::Handle<v8::Value> &pVa
 	}
 	else if( pValueIn->IsNumber() )
 	{
-		*out = ( pValueIn->ToNumber()->Value() != 0.0 );
+		*out = ( pValueIn->ToNumber( v8::Isolate::GetCurrent()->GetCurrentContext() ).ToLocalChecked()->Value() != 0.0 );
 	}
 	else
 	{
@@ -1147,7 +1147,7 @@ template <> void V8ParamToPanoramaType< time_t >( const v8::Handle<v8::Value> &p
 {
 	if ( pValueIn->IsNumber() )
 	{
-		*out = ( time_t )( pValueIn->ToNumber()->Value() );
+		*out = ( time_t )( pValueIn->ToNumber( v8::Isolate::GetCurrent()->GetCurrentContext() ).ToLocalChecked()->Value() );
 	}
 	else
 	{
@@ -1162,7 +1162,7 @@ template <> void V8ParamToPanoramaType< CRTime >( const v8::Handle<v8::Value> &p
 {
 	if ( pValueIn->IsNumber() )
 	{
-		*out = CRTime((int64_t)pValueIn->ToNumber()->Value());
+		*out = CRTime((int64_t)pValueIn->ToNumber( v8::Isolate::GetCurrent()->GetCurrentContext() ).ToLocalChecked()->Value());
 	}
 	if ( pValueIn->IsString() )
 	{

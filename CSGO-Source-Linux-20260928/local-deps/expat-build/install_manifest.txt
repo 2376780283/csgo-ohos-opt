@@ -1,0 +1,11 @@
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/include/expat_config.h
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/lib/libexpat.a
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/include/expat.h
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/include/expat_external.h
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/lib/pkgconfig/expat.pc
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/share/doc/expat/AUTHORS
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/share/doc/expat/changelog
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/lib/cmake/expat-2.5.0/expat-config.cmake
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/lib/cmake/expat-2.5.0/expat-config-version.cmake
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/lib/cmake/expat-2.5.0/expat.cmake
+/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/runtime/android/install/lib/cmake/expat-2.5.0/expat-relwithdebinfo.cmake

@@ -1,0 +1,5 @@
+# ninja log v7
+1	445	1792315519076010623	CMakeFiles/expat.dir/lib/xmlrole.c.o	6dfd9d16a458a86e
+2	3058	1792315519080010623	CMakeFiles/expat.dir/lib/xmltok.c.o	863b523c52cdc296
+1	3370	1792315519076010623	CMakeFiles/expat.dir/lib/xmlparse.c.o	fcd4559553097b30
+3371	3401	1792315522448010623	libexpat.a	f9c242a25b49fec6

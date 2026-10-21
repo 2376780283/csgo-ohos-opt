@@ -122,9 +122,9 @@ def stage(config, ndk):
         if record["libraries"].get(path.name) != sha(path):
             raise RuntimeError(f"Engine module changed outside the recorded build: {path}")
     prefix = OUT / "install/lib"
-    runtime = ndk / "toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so"
+    runtime = ndk / "toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so"
     roots += [variant / "build/libcsgo_android.so", prefix / "libSDL3.so", prefix / "libdxvk_d3d9.so", runtime]
-    readelf = ndk / "toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readelf"
+    readelf = ndk / "toolchains/llvm/prebuilt/linux-arm64/bin/llvm-readelf"
     search = [prefix, ROOT / "src/lib/common/androidarm64"]
     selected = {path.name: path for path in roots}
     pending = list(selected)

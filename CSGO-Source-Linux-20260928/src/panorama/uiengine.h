@@ -46,11 +46,11 @@
 
 #if defined( SOURCE2_PANORAMA )
 #include "../thirdparty/v8/include/v8.h"
-#include "../thirdparty/v8/include/v8-debug.h"
+// #include "../thirdparty/v8/include/v8-debug.h"
 #else
 #include <html/ichromehtmlwrapper.h>
 #include "../external/v8/include/v8.h"
-#include "../external/v8/include/v8-debug.h"
+// #include "../external/v8/include/v8-debug.h"
 #endif
 
 #include "ctx_debug.h"

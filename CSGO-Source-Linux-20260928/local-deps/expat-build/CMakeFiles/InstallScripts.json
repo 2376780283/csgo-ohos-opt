@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/data/data/com.termux/files/home/csgo-ohos-opt/CSGO-Source-Linux-20260928/local-deps/expat-build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

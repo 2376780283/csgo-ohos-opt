@@ -1,17 +1,7 @@
-#!/usr/bin/env bash
+##!/usr/bin/env bash
 set -euo pipefail
 
 repo_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
-if [[ ${CONTAINER_ID:-} != dev ]]; then
-    exec distrobox enter -T -n dev -- env \
-        BUILD_JOBS="${BUILD_JOBS:-6}" BUILD_CONFIG="${BUILD_CONFIG:-release}" ANDROID_SERIAL="${ANDROID_SERIAL:-}" \
-        ANDROID_NDK_ROOT="${ANDROID_NDK_ROOT:-/home/deck/Code/Toolchains/android-ndk}" \
-        ANDROID_SDK_ROOT="${ANDROID_SDK_ROOT:-/home/deck/Code/Toolchains/android-sdk}" \
-        CSGO_RESOURCE_SOURCE="${CSGO_RESOURCE_SOURCE:-$repo_dir/runtime/csgo-2019}" \
-        CSGO_ASTC_PACK="${CSGO_ASTC_PACK:-}" \
-        CSGO_ANDROID_VK_LAYER="${CSGO_ANDROID_VK_LAYER:-}" \
-        bash "$repo_dir/scripts/build-android.sh" "$@"
-fi
 
 config=${BUILD_CONFIG:-release}
 [[ $config == debug || $config == release ]] || { echo 'BUILD_CONFIG must be debug or release.' >&2; exit 2; }
@@ -21,9 +11,9 @@ jobs=${BUILD_JOBS:-6}
 [[ $jobs =~ ^[1-9][0-9]*$ ]] || { echo 'BUILD_JOBS must be positive.' >&2; exit 2; }
 ndk=${ANDROID_NDK_ROOT:-/home/deck/Code/Toolchains/android-ndk}
 sdk=${ANDROID_SDK_ROOT:-/home/deck/Code/Toolchains/android-sdk}
-ndk_bin="$ndk/toolchains/llvm/prebuilt/linux-x86_64/bin"
-build_tools="$sdk/build-tools/37.0.0"
-android_jar="$sdk/platforms/android-37.2/android.jar"
+ndk_bin="$ndk/toolchains/llvm/prebuilt/linux-arm64/bin"
+build_tools="$sdk/build-tools/36.1.0"
+android_jar="$sdk/platforms/android-36/android.jar"
 out="$repo_dir/runtime/android"
 prefix="$out/install"
 variant="$out/$config"
@@ -98,8 +88,16 @@ PY
 }
 
 build_native() {
+    local host_dir sysroot
+    host_dir=$(dirname "$ndk_bin")          # .../prebuilt/linux-arm64
+    sysroot="$host_dir/sysroot"
+    [[ -f "$sysroot/usr/include/android/api-level.h" ]] \
+        || die "NDK sysroot missing android/api-level.h: $sysroot"
+
     cmake -S "$repo_dir/android" -B "$variant/build" -G Ninja \
         "-DCMAKE_TOOLCHAIN_FILE=$ndk/build/cmake/android.toolchain.cmake" \
+        "-DCMAKE_SYSROOT=$sysroot" \
+        "-DCMAKE_FIND_ROOT_PATH=$sysroot" \
         -DANDROID_ABI=arm64-v8a "-DANDROID_PLATFORM=android-$api" -DANDROID_STL=c++_shared \
         "-DCMAKE_BUILD_TYPE=$cmake_config" "-DCSGO_ANDROID_DEPS=$prefix" \
         "-DCSGO_SOURCE_CONFIG=$config" "-DCSGO_ANDROID_PACKAGE=$package" \
