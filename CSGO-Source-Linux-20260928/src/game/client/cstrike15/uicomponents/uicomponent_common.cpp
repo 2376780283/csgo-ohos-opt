@@ -67,7 +67,7 @@ double CPanoramaMarshallHelper::Params_GetArgAsNumber( SFPARAMS params, int inde
 	const v8::FunctionCallbackInfo<v8::Value> &args = *reinterpret_cast< const v8::FunctionCallbackInfo<v8::Value> * >( params );
 	Assert( index >= 0 && index < args.Length() );
 	// Assert( args[ index ]->IsNumber() ); // allow soft-coercion from JS values to numbers
-	double result = args[index]->NumberValue();
+	double result = args[index]->NumberValue( v8::Isolate::GetCurrent()->GetCurrentContext() ).FromMaybe(0.0);
 	if ( !IsFinite( result ) )
 	{
 		AssertMsg( false, "non-number passed as argument to function requiring number" );
@@ -81,7 +81,7 @@ bool CPanoramaMarshallHelper::Params_GetArgAsBool( SFPARAMS params, int index /*
 	const v8::FunctionCallbackInfo<v8::Value> &args = *reinterpret_cast< const v8::FunctionCallbackInfo<v8::Value> * >( params );
 	Assert( index >= 0 && index < args.Length() );
 	Assert( args[ index ]->IsBoolean() );
-	return args[ index ]->BooleanValue();
+	return args[ index ]->BooleanValue( v8::Isolate::GetCurrent()->GetCurrentContext() ).FromMaybe(false);
 }
 
 const char* CPanoramaMarshallHelper::Params_GetArgAsString( SFPARAMS params, int index /*= 0 */ )

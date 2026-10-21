@@ -627,7 +627,7 @@ panorama::IUIPanel *CUiComponent_UiToolkit::ShowSimpleContextMenuWithDismissEven
 	{
 		if ( items->Get( i )->IsObject() )
 		{
-			v8::Local< v8::Object > item = items->Get( i )->ToObject();
+			v8::Local< v8::Object > item = items->Get( i )->ToObject( v8::Isolate::GetCurrent()->GetCurrentContext() ).ToLocalChecked();
 			
 			v8::Local< v8::Value > jsLabel = item->Get( v8::String::NewFromUtf8( pIsolate, "label" ) );
 			if ( jsLabel.IsEmpty() || !jsLabel->IsString() )
@@ -761,7 +761,7 @@ void CUiComponent_UiToolkit::InvokeJSCallback( const v8::FunctionCallbackInfo< v
 	{
 		callbackInfo.GetIsolate()->ThrowException( v8::String::NewFromUtf8( callbackInfo.GetIsolate(), "UiToolkit.InvokeJSCallback - The first argument must be a callback handle returned by UiToolkit.RegisterJSCallback." ) );
 	}
-	panorama::JSGenericCallbackHandle_t nHandle = (int)callbackInfo[0]->ToNumber()->Value();
+	panorama::JSGenericCallbackHandle_t nHandle = (int)callbackInfo[0]->ToNumber( v8::Isolate::GetCurrent()->GetCurrentContext() ).ToLocalChecked()->Value();
 
 	// Arguments to use when invoking callback
 	v8::HandleScope handle_scope( callbackInfo.GetIsolate() );

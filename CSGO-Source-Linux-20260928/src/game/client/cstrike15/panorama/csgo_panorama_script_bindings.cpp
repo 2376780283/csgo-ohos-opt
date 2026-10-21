@@ -94,9 +94,9 @@ bool JSValueToVector( v8::Isolate *pIsolate, v8::Handle< v8::Value > val, Vector
 			return false;
 		}
 
-		pOutVec->x = pJSArray->Get( 0 )->NumberValue();
-		pOutVec->y = pJSArray->Get( 1 )->NumberValue();
-		pOutVec->z = pJSArray->Get( 2 )->NumberValue();
+		pOutVec->x = pJSArray->Get( 0 )->NumberValue( v8::Isolate::GetCurrent()->GetCurrentContext() ).FromMaybe(0.0);
+		pOutVec->y = pJSArray->Get( 1 )->NumberValue( v8::Isolate::GetCurrent()->GetCurrentContext() ).FromMaybe(0.0);
+		pOutVec->z = pJSArray->Get( 2 )->NumberValue( v8::Isolate::GetCurrent()->GetCurrentContext() ).FromMaybe(0.0);
 		return true;
 	}
 	else if ( val->IsString() )
@@ -108,9 +108,9 @@ bool JSValueToVector( v8::Isolate *pIsolate, v8::Handle< v8::Value > val, Vector
 	else if ( val->IsObject() )
 	{
 		v8::Local< v8::Object > pJSObject = v8::Handle< v8::Object >::Cast( val );
-		pOutVec->x = pJSObject->Get( v8::String::NewFromUtf8( pIsolate, "x" ) )->NumberValue();
-		pOutVec->y = pJSObject->Get( v8::String::NewFromUtf8( pIsolate, "y" ) )->NumberValue();
-		pOutVec->z = pJSObject->Get( v8::String::NewFromUtf8( pIsolate, "z" ) )->NumberValue();
+		pOutVec->x = pJSObject->Get( v8::String::NewFromUtf8( pIsolate, "x" ) )->NumberValue( v8::Isolate::GetCurrent()->GetCurrentContext() ).FromMaybe(0.0);
+		pOutVec->y = pJSObject->Get( v8::String::NewFromUtf8( pIsolate, "y" ) )->NumberValue( v8::Isolate::GetCurrent()->GetCurrentContext() ).FromMaybe(0.0);
+		pOutVec->z = pJSObject->Get( v8::String::NewFromUtf8( pIsolate, "z" ) )->NumberValue( v8::Isolate::GetCurrent()->GetCurrentContext() ).FromMaybe(0.0);
 		return true;
 	}
 	else
@@ -140,11 +140,11 @@ bool JSValueToKeyValues( v8::Handle< v8::Value > val, KeyValues *pTargetKV )
 	}
 	else if ( val->IsBoolean() )
 	{
-		pTargetKV->SetBool( NULL, val->BooleanValue() );
+		pTargetKV->SetBool( NULL, val->BooleanValue( v8::Isolate::GetCurrent()->GetCurrentContext() ).FromMaybe(false) );
 	}
 	else if ( val->IsInt32() )
 	{
-		pTargetKV->SetInt( NULL, val->Int32Value() );
+		pTargetKV->SetInt( NULL, val->Int32Value( v8::Isolate::GetCurrent()->GetCurrentContext() ).FromMaybe(0) );
 	}
 	else if ( val->IsArray() )
 	{
@@ -158,7 +158,7 @@ bool JSValueToKeyValues( v8::Handle< v8::Value > val, KeyValues *pTargetKV )
 	}
 	else if ( val->IsNumber() )
 	{
-		pTargetKV->SetFloat( NULL, val->NumberValue() );
+		pTargetKV->SetFloat( NULL, val->NumberValue( v8::Isolate::GetCurrent()->GetCurrentContext() ).FromMaybe(0.0) );
 	}
 	else if ( val->IsObject() )
 	{
